@@ -40,6 +40,8 @@ namespace SampleAspNetCoreApp
 			services.AddDefaultIdentity<IdentityUser>()
 				.AddEntityFrameworkStores<SampleDataContext>();
 
+			services.AddExceptionHandler<ArithmeticExceptionHandler>();
+
 			services.Configure<IdentityOptions>(options =>
 			{
 				// Password settings
@@ -69,6 +71,8 @@ namespace SampleAspNetCoreApp
 		public static void ConfigureAllExceptAgent(IApplicationBuilder app)
 		{
 			app.UseDeveloperExceptionPage();
+
+			app.UseExceptionHandler("/Error");
 
 			app.UseStaticFiles();
 			app.UseCookiePolicy();

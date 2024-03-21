@@ -175,7 +175,7 @@ namespace SampleAspNetCoreApp.Controllers
 		public IActionResult TriggerError()
 		{
 			Agent.Tracer.CurrentTransaction?.SetLabel("foo", "bar");
-			throw new Exception("This is a test exception!");
+			throw new ArithmeticException("This is a test exception!");
 		}
 
 		//Used as test for optional route parameters
